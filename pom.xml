@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.javaweb</groupId>
+	<artifactId>web-servlet-embedded</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	
+	<properties>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<tomcat.version>9.0.26</tomcat.version>
+	</properties>
+	
+	<dependencies>
+	    <!-- 
+	       Tomcat实际上也是一个Java程序，我们看看Tomcat的启动流程：
+				1.启动JVM并执行Tomcat的main()方法；
+				2.加载war并初始化Servlet；
+				3.正常服务。
+			启动Tomcat无非就是设置好classpath并执行Tomcat某个jar包的main()方法，
+			我们完全可以把Tomcat的jar包全部引入进来，然后自己编写一个main()方法，先启动Tomcat，然后让它加载我们的webapp就行;
+			不需要将javaweb项目部署到tomcat中，直接在javaweb项目中引入内嵌的tomcat
+	     -->
+	    <!-- 不必引入Servlet API，因为引入Tomcat依赖后自动引入了Servlet API -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<version>${tomcat.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<version>${tomcat.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	   </dependencies>
+</project>
