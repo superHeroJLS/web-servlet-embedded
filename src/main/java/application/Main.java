@@ -1,4 +1,4 @@
-package myservlet;
+package application;
 
 import java.io.File;
 

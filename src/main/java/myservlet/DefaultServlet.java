@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Administrator
  *
  */
-@WebServlet(urlPatterns = {"/"})
+//@WebServlet(urlPatterns = {"/"})
 public class DefaultServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
