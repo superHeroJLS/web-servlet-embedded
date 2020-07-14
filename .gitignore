@@ -12,4 +12,5 @@ bin/
 *.iml
 
 tomcat.8080/
+tomcat/
 
