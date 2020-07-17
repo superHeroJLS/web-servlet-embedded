@@ -23,7 +23,8 @@ public class Main {
         
         // 创建webapp
         // 通过预设的tomcat.addWebapp("", new File("src/main/webapp")，Tomcat会自动加载当前工程作为root webapp
-        Context context = tomcat.addWebapp("", new File("src/main/webapp").getAbsolutePath());
+        // 通过预设的tomcat.addWebapp("webservlet", new File("src/main/webapp")，Tomcat会自动加载当前工程作为webservlet webapp
+        Context context = tomcat.addWebapp("webservlet", new File("src/main/webapp").getAbsolutePath());
         WebResourceRoot resources = new StandardRoot(context);
         resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes", new File("target/classes").getAbsolutePath(), "/"));
         context.setResources(resources);
